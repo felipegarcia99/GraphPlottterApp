@@ -1,0 +1,79 @@
+<MainScreen>:
+    cols: 3
+    #orientation: 'vertical'
+
+    canvas.before:
+        Rectangle:
+            #source: 'atlas://data/images/defaulttheme/background'
+            source: 'back.jpg'
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        size_hint_x: .3
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+
+        BoxLayout:
+            size_hint_y: .6
+
+        LabelEntrada:
+            size_hint_y: .15
+            font_size: 20
+            bold: True
+
+        TextBox:
+            id: TextBox
+            size_hint_y: .1
+            #size_hint_x: .6
+            focus: True
+            multiline: False
+
+
+        ButtonOk:
+            id: button_ok
+            size_hint_y: .3
+            background_color: 0, 1, 0, 1
+            text: 'Go'
+            font_size: 30
+            bold: True
+            on_press:
+                TextBox.make_func_oficial(TextBox.text, root.x1)
+                #app.root.current = 'GraphScreen'
+                #root.manager.current = 'graph_screen'
+                #root.manager.switch_to = 'graph_screen'
+
+
+        BoxLayout:
+            size_hint_y: .6
+
+    BoxLayout:
+        size_hint_x: .3
+
+
+<PopupGraph>:
+    id: PopupGraph
+    size_hint: .8, .8
+    title: self.titulo
+    title_align: 'left'
+    title_size: '24sp'
+
+    on_dismiss:
+        #root.remove2()
+        #root.remove_widget(BoxLayout_Graph)
+        #button_ok.remove()
+
+    #SetGraph:
+        #graph: graph
+        #id: BoxLayout_Graph
+        #orientation: 'vertical'
+
+        #Graph:
+            #id: graph
+            #size: self.size
+            #pos: self.pos
+
+
+
